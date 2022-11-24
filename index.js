@@ -4,7 +4,7 @@ const { WebSocket } = require("ws");
 let socket = new WebSocket("ws://localhost:9001");
 
 const main = async () => {
-  socket.on("open", async () => {
+  socket.on("connect", async () => {
     console.log("connected to ws");
     let res = await socket.emit("rpc", {
       jsonrpc: "2.0",
