@@ -12,7 +12,7 @@ const subscribeEvent = async (payload) => {
         { All: [{ Package: "0x26d943059b2c6420671bc7c66b3e72b8532f0e7f" }] },
       ],
     };
-    let result = await socket.send(JSON.stringify(payload));
+    await socket.send(JSON.stringify(payload));
     // console.log(`response rpc: ${result}`);
 
     socket.on("message", (res) => {
