@@ -1,7 +1,6 @@
 // const { WebSocket, createWebSocketStream } = require("ws");
 const { WebSocket } = require("ws");
 // const { JSONRPCClient } = require("json-rpc-2.0");
-let socket = new WebSocket("ws://localhost:9001");
 const payload = {
   jsonrpc: "2.0",
   id: 1,
@@ -10,6 +9,7 @@ const payload = {
     { All: [{ Package: "0x26d943059b2c6420671bc7c66b3e72b8532f0e7f" }] },
   ],
 };
+let socket = new WebSocket("ws://localhost:9001", payload);
 
 // const main_1 = async () => {
 //   socket.on("on", async () => {
@@ -33,11 +33,8 @@ try {
   console.log("inside try");
   const main = async () => {
     console.log("inside main");
-    socket.on("open", async () => {
-      console.log("inside open");
-      //   const res = await socket.emit("rpc", payload);
-      const res = await socket.send(payload);
-      console.log(res);
+    socket.on("message", function message(data) {
+      console.log("received: %s", data);
     });
     // socket.on("connect", () => {
     //   console.log("inside connect");
