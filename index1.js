@@ -10,7 +10,7 @@ const payload = {
 const socket = new WebSocket("ws://localhost:9001", payload);
 
 const main = async () => {
-  socket.on("connect", async () => {
+  socket.on("open", async () => {
     console.log("connected to ws");
   });
 };
