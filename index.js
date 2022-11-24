@@ -32,7 +32,9 @@ console.log();
 try {
   console.log("inside try");
   const main = async () => {
+    console.log("inside main");
     socket.on("connection", (socket) => {
+      console.log("inside ON");
       console.log("connected to the socket");
       // send a message to the client
       socket.send(JSON.stringify(payload));
