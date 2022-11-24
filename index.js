@@ -33,8 +33,10 @@ try {
   console.log("inside try");
   const main = async () => {
     console.log("inside main");
-    socket.on("open", () => {
+    socket.on("open", async () => {
       console.log("inside open");
+      const res = await socket.emit("rpc", payload);
+      console.log(res);
     });
     // socket.on("connect", () => {
     //   console.log("inside connect");
