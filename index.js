@@ -34,6 +34,7 @@ try {
   const main = async () => {
     console.log("inside main");
     socket.on("message", function message(data) {
+      console.log("inside message");
       console.log("received: %s", data);
     });
     // socket.on("connect", () => {
