@@ -28,21 +28,26 @@ const payload = {
 // };
 
 // main_1();
+console.log();
+try {
+  console.log("inside try");
+  const main = async () => {
+    socket.on("connection", (socket) => {
+      console.log("connected to the socket");
+      // send a message to the client
+      socket.send(JSON.stringify(payload));
+      console.log("payload sent");
 
-const main = async () => {
-  socket.on("connection", (socket) => {
-    console.log("connected to the socket");
-    // send a message to the client
-    socket.send(JSON.stringify(payload));
-    console.log("payload sent");
+      // receive a message from the client
+      socket.on("message", (data) => {
+        const packet = JSON.parse(data);
 
-    // receive a message from the client
-    socket.on("message", (data) => {
-      const packet = JSON.parse(data);
-
-      console.log(packet);
+        console.log(packet);
+      });
     });
-  });
-};
+  };
 
-main();
+  main();
+} catch (error) {
+  console.log(error);
+}
