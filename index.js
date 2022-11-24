@@ -33,20 +33,23 @@ try {
   console.log("inside try");
   const main = async () => {
     console.log("inside main");
-    socket.on("connect", (socket) => {
-      console.log("inside connect");
-      console.log("connected to the socket");
-      // send a message to the client
-      socket.send(JSON.stringify(payload));
-      console.log("payload sent");
-
-      // receive a message from the client
-      socket.on("message", (data) => {
-        const packet = JSON.parse(data);
-
-        console.log(packet);
-      });
+    socket.on("open", () => {
+      console.log("inside open");
     });
+    // socket.on("connect", () => {
+    //   console.log("inside connect");
+    //   console.log("connected to the socket");
+    //   // send a message to the client
+    //   socket.send(JSON.stringify(payload));
+    //   console.log("payload sent");
+
+    //   // receive a message from the client
+    //   socket.on("message", (data) => {
+    //     const packet = JSON.parse(data);
+
+    //     console.log(packet);
+    //   });
+    // });
   };
 
   main();
