@@ -13,7 +13,7 @@ const subscribeEvent = async (payload) => {
       ],
     };
     let result = await socket.send(JSON.stringify(payload));
-    console.log(`response rpc: ${result}`);
+    // console.log(`response rpc: ${result}`);
 
     socket.on("message", (res) => {
       console.log(`res ${res}`);
