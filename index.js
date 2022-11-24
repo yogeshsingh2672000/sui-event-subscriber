@@ -11,7 +11,7 @@ const payload = {
   ],
 };
 
-// const main = async () => {
+// const main_1 = async () => {
 //   socket.on("on", async () => {
 //     console.log("connected to ws");
 //     let res = await socket.emit("rpc", {
@@ -27,12 +27,14 @@ const payload = {
 //   });
 // };
 
-// main();
+// main_1();
 
 const main = async () => {
   socket.on("connection", (socket) => {
+    console.log("connected to the socket");
     // send a message to the client
     socket.send(JSON.stringify(payload));
+    console.log("payload sent");
 
     // receive a message from the client
     socket.on("message", (data) => {
