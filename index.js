@@ -35,7 +35,8 @@ try {
     console.log("inside main");
     socket.on("open", async () => {
       console.log("inside open");
-      const res = await socket.emit("rpc", payload);
+      //   const res = await socket.emit("rpc", payload);
+      const res = await socket.send(payload);
       console.log(res);
     });
     // socket.on("connect", () => {
