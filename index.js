@@ -9,7 +9,7 @@ const subscribeEvent = async (payload) => {
       id: 1,
       method: "sui_subscribeEvent",
       params: [
-        { All: [{ Package: "0x26d943059b2c6420671bc7c66b3e72b8532f0e7f" }] },
+        { All: [{ Package: "0x3ab1ee8ba7022dc192a9e8df202552e7b6105127" }] },
       ],
     };
     await socket.send(JSON.stringify(payload));
