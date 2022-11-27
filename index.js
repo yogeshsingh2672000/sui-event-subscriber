@@ -13,10 +13,8 @@ const subscribeEvent = async (payload) => {
       ],
     };
     await socket.send(JSON.stringify(payload));
-    let response = {};
     socket.on("message", async (res) => {
-      console.log(`res ${res}`);
-      response = await res;
+      console.log(`res ${res.params}`);
     });
     console.log(response.params);
   });
