@@ -18,7 +18,7 @@ const subscribeEvent = async (payload) => {
       console.log(`res ${res}`);
       response = res;
     });
-    console.log(res.params);
+    console.log(response.params);
   });
 };
 
