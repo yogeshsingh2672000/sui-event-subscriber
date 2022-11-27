@@ -14,7 +14,9 @@ const subscribeEvent = async (payload) => {
     };
     await socket.send(JSON.stringify(payload));
     socket.on("message", async (res) => {
-      console.log(`res ${await res.params}`);
+      console.log(`res ${res}`).then((res) => {
+        console.log(res.params);
+      });
     });
     console.log(response.params);
   });
