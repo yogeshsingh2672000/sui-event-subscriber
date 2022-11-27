@@ -16,6 +16,8 @@ const subscribeEvent = async (payload) => {
 
     socket.on("message", (res) => {
       console.log(`res ${res}`);
+      const data = res;
+      console.log(res.params.result.event);
     });
   });
 };
